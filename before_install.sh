@@ -18,17 +18,17 @@ if [ "$CASHER_DIR" ]; then
     mkdir -p $HOME/.cache/bin
     # phpunit
     if [ ! -f $HOME/.cache/bin/phpunit ]; then
-        if [[ "$TRAVIS_PHP_VERSION" = "7.0" ]]; then
+        if [[ $TRAVIS_PHP_VERSION = 7.0 ]]; then
             curl --connect-timeout 30 -sS https://phar.phpunit.de/phpunit-6.5.14.phar \
                  -o $HOME/.cache/bin/phpunit
         fi
-        if [[ "$TRAVIS_PHP_VERSION" = "7.1" ]]; then
+        if [[ $TRAVIS_PHP_VERSION = 7.1 ]]; then
             curl --connect-timeout 30 -sS https://phar.phpunit.de/phpunit-7.5.6.phar \
                  -o $HOME/.cache/bin/phpunit
         fi
-        if [[ "$TRAVIS_PHP_VERSION" = "7.2" &&
-              "$TRAVIS_PHP_VERSION" = "7.3"  &&
-              "$TRAVIS_PHP_VERSION" = "7.4" ]]; then
+        if [[ $TRAVIS_PHP_VERSION = 7.2 &&
+              $TRAVIS_PHP_VERSION = 7.3  &&
+              $TRAVIS_PHP_VERSION = 7.4 ]]; then
             curl --connect-timeout 30 -sS https://phar.phpunit.de/phpunit-8.0.4.phar \
                  -o $HOME/.cache/bin/phpunit
         fi
