@@ -12,10 +12,13 @@ cd ${HOME}
 
 git clone https://github.com/shopware/shopware.git ${SHOPWARE_DIRECTORY} --branch ${SHOPWARE_VERSION}
 ant -f ${SHOPWARE_DIRECTORY}/build/build.xml -Dapp.host=localhost -Ddb.user=travis -Ddb.host=127.0.0.1 -Ddb.name=shopware build-unit
-mv ${HOME}/build/dependencies/FfuenfCommon ${PLUGIN_DIRECTORY}/FfuenfCommon
-php ${HOME}/shopware/bin/console sw:plugin:refresh
-php ${HOME}/shopware/bin/console sw:plugin:install FfuenfCommon
-php ${HOME}/shopware/bin/console sw:plugin:activate FfuenfCommon
+if [ -z ${PLUGIN_NAME} != 'FfuenfCommon' ]
+then
+    mv ${HOME}/build/dependencies/FfuenfCommon ${PLUGIN_DIRECTORY}/FfuenfCommon
+    php ${HOME}/shopware/bin/console sw:plugin:refresh
+    php ${HOME}/shopware/bin/console sw:plugin:install FfuenfCommon
+    php ${HOME}/shopware/bin/console sw:plugin:activate FfuenfCommon
+fi
 mv ${TRAVIS_BUILD_DIR} ${PLUGIN_DIRECTORY}/${PLUGIN_NAME}
 php ${HOME}/shopware/bin/console sw:plugin:refresh
 php ${HOME}/shopware/bin/console sw:plugin:install ${PLUGIN_NAME}
