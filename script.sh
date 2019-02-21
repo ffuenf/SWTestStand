@@ -44,14 +44,14 @@ fi
 mv ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini.disabled ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
 phpenv rehash;
 
-if [ -f tests/phpunit.xml ]
+if [ -f ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit.xml ]
 then
-    $HOME/.cache/bin/phpunit -c tests/phpunit.xml --coverage-clover=${WORKSPACE}/build/logs/coverage.clover --colors -d display_errors=1
+    $HOME/.cache/bin/phpunit -c ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit.xml --coverage-clover=${WORKSPACE}/build/logs/coverage.clover --colors -d display_errors=1
 fi
 
-if [ -f tests/phpunit_unit.xml ]
+if [ -f ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit_unit.xml ]
 then
-    $HOME/.cache/bin/phpunit -c tests/phpunit_unit.xml --coverage-clover=${WORKSPACE}/build/logs/coverage_unit.clover --colors -d display_errors=1
+    $HOME/.cache/bin/phpunit -c ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit_unit.xml --coverage-clover=${WORKSPACE}/build/logs/coverage_unit.clover --colors -d display_errors=1
 fi
 
 $HOME/.cache/bin/phpspec run --format dot

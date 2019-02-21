@@ -1,5 +1,5 @@
 {
-  "name": "SWTestStand",
+  "name": "ffuenf/SWTestStand",
   "description": "This tool is used to build a minimal Shopware environment that allows to run PHPUnit tests for a Shopware extension on Travis CI",
   "minimum-stability": "dev",
   "config": {
