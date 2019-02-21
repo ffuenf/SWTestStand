@@ -45,7 +45,7 @@ script:
 - curl -sSL https://raw.githubusercontent.com/ffuenf/SWTestStand/master/script.sh
   | bash
 after_success:
-- curl -sSL https://raw.githubusercontent.com/ffuenf/SWTestStand/master/build.sh ${PLUGIN_NAME} ${TRAVIS_TAG}
+- curl -sSL https://raw.githubusercontent.com/ffuenf/SWTestStand/master/build.sh
   | bash
 deploy:
   provider: releases

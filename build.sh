@@ -13,8 +13,6 @@ if [ "$TRAVIS_TAG" != "" ]; then
     --exclude='.git/' \
     --exclude='.gitignore' \
     --exclude='.gitmodules' \
-    --exclude='build.sh' \
-    --exclude='phpunit.xml.dist' \
     --exclude='tests' \
     . ${RELEASEDIR}/${PLUGIN_NAME}/
   cd ${RELEASEDIR}/
