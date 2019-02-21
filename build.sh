@@ -2,17 +2,6 @@
 set -e
 set -x
 
-PLUGIN_NAME=$1
-commit=$2
-if [ -z ${commit} ]; then
-    commit=$(git tag --sort=-creatordate | head -1)
-    if [ -z ${commit} ]; then
-        commit="master";
-    fi
-fi
-
-rm -rf ${PLUGIN_NAME} ${PLUGIN_NAME}-*.zip
-
 if [ "$TRAVIS_TAG" != "" ]; then
   RELEASEDIR=`mktemp -d /tmp/${PLUGIN_NAME}-${TRAVIS_TAG}.XXXXXXXX`
   echo "Using release directory ${RELEASEDIR}"
@@ -24,8 +13,6 @@ if [ "$TRAVIS_TAG" != "" ]; then
     --exclude='.git/' \
     --exclude='.gitignore' \
     --exclude='.gitmodules' \
-    --exclude='build.sh' \
-    --exclude='phpunit.xml.dist' \
     --exclude='tests' \
     . ${RELEASEDIR}/${PLUGIN_NAME}/
   cd ${RELEASEDIR}/
