@@ -19,7 +19,7 @@ then
     php ${HOME}/shopware/bin/console sw:plugin:install FfuenfCommon
     php ${HOME}/shopware/bin/console sw:plugin:activate FfuenfCommon
 fi
-mv ${TRAVIS_BUILD_DIR} ${PLUGIN_DIRECTORY}/${PLUGIN_NAME}
+cp -R ${TRAVIS_BUILD_DIR} ${PLUGIN_DIRECTORY}/${PLUGIN_NAME}
 php ${HOME}/shopware/bin/console sw:plugin:refresh
 php ${HOME}/shopware/bin/console sw:plugin:install ${PLUGIN_NAME}
 php ${HOME}/shopware/bin/console sw:plugin:activate ${PLUGIN_NAME}
