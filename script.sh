@@ -6,7 +6,6 @@ function cleanup {
   if [ -z $SKIP_CLEANUP ]; then
     echo "Removing build directory ${BUILDENV}"
     rm -rf "${BUILDENV}"
-    rm -rf ${WORKSPACE}/build
   fi
 }
 
@@ -53,8 +52,6 @@ if [ -f ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit_unit.xm
 then
     $HOME/.cache/bin/phpunit -c ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit_unit.xml --coverage-clover=${WORKSPACE}/build/logs/coverage_unit.clover --colors -d display_errors=1
 fi
-
-$HOME/.cache/bin/phpspec run --format dot
 
 echo "Exporting code coverage results to scrutinizer-ci"
 cd ${WORKSPACE}
