@@ -8,14 +8,6 @@ HOME=`dirname "${ABSPATH}"`
 SHOPWARE_DIRECTORY="${HOME}/shopware"
 PLUGIN_DIRECTORY="${SHOPWARE_DIRECTORY}/custom/plugins"
 
-echo
-echo "----------------------"
-echo "- Ffuenf SWTestStand -"
-echo "----------------------"
-echo
-echo "Installing ${SHOPWARE_VERSION} in ${HOME}/shopware"
-echo
-
 cd ${HOME}
 
 git clone https://github.com/shopware/shopware.git ${SHOPWARE_DIRECTORY} --branch ${SHOPWARE_VERSION}

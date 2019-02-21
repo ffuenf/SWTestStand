@@ -58,20 +58,20 @@ cd ${WORKSPACE}
 if [ ! -z $SCRUTINIZER_ACCESS_TOKEN ] ; then
   if [ -f ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit.xml ]
   then
-      php -f $HOME/.cache/bin/ocular code-coverage:upload --repository=ffuenf/${PLUGIN_NAME} --access-token=${SCRUTINIZER_ACCESS_TOKEN} --format=php-clover ${WORKSPACE}/build/logs/coverage.clover
+      php -f $HOME/.cache/bin/ocular code-coverage:upload --repository=ffuenf/${PLUGIN_NAME} --revision=${TRAVIS_COMMIT} --access-token=${SCRUTINIZER_ACCESS_TOKEN} --format=php-clover ${WORKSPACE}/build/logs/coverage.clover
   fi
   if [ -f ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit_unit.xml ]
   then
-      php -f $HOME/.cache/bin/ocular code-coverage:upload --repository=ffuenf/${PLUGIN_NAME} --access-token=${SCRUTINIZER_ACCESS_TOKEN} --format=php-clover ${WORKSPACE}/build/logs/coverage_unit.clover
+      php -f $HOME/.cache/bin/ocular code-coverage:upload --repository=ffuenf/${PLUGIN_NAME} --revision=${TRAVIS_COMMIT} --access-token=${SCRUTINIZER_ACCESS_TOKEN} --format=php-clover ${WORKSPACE}/build/logs/coverage_unit.clover
   fi
 else
   if [ -f ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit.xml ]
   then
-      php -f $HOME/.cache/bin/ocular code-coverage:upload --repository=ffuenf/${PLUGIN_NAME} --format=php-clover ${WORKSPACE}/build/logs/coverage_unit.clover
+      php -f $HOME/.cache/bin/ocular code-coverage:upload --repository=ffuenf/${PLUGIN_NAME} --revision=${TRAVIS_COMMIT} --format=php-clover ${WORKSPACE}/build/logs/coverage_unit.clover
   fi
   if [ -f ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}/tests/phpunit_unit.xml ]
   then
-      php -f $HOME/.cache/bin/ocular code-coverage:upload --repository=ffuenf/${PLUGIN_NAME} --format=php-clover ${WORKSPACE}/build/logs/coverage_unit.clover
+      php -f $HOME/.cache/bin/ocular code-coverage:upload --repository=ffuenf/${PLUGIN_NAME} --revision=${TRAVIS_COMMIT} --format=php-clover ${WORKSPACE}/build/logs/coverage_unit.clover
   fi
 fi
 
