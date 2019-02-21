@@ -30,7 +30,7 @@ git clone https://github.com/ffuenf/SWTestStand "${BUILDENV}"
 
 mkdir -p ${WORKSPACE}/build/logs
 
-${BUILDENV}/dependencies.sh
+${BUILDENV}/dependencies.sh ${WORKSPACE}
 
 ${BUILDENV}/shopware.sh
 
