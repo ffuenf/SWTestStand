@@ -12,7 +12,7 @@ cd ${HOME}
 
 git clone https://github.com/shopware/shopware.git ${SHOPWARE_DIRECTORY} --branch ${SHOPWARE_VERSION}
 ant -f ${SHOPWARE_DIRECTORY}/build/build.xml -Dapp.host=localhost -Ddb.user=travis -Ddb.host=127.0.0.1 -Ddb.name=shopware build-unit
-if [ -z ${PLUGIN_NAME} != 'FfuenfCommon' ]
+if [ ${PLUGIN_NAME} != 'FfuenfCommon' ]
 then
     mv ${HOME}/build/dependencies/FfuenfCommon ${PLUGIN_DIRECTORY}/FfuenfCommon
     php ${HOME}/shopware/bin/console sw:plugin:refresh
