@@ -78,7 +78,7 @@ fi
 if [ "$TRAVIS_TAG" != "" ]; then
   RELEASEDIR=`mktemp -d /tmp/${PLUGIN_NAME}-${TRAVIS_TAG}.XXXXXXXX`
   echo "Using release directory ${RELEASEDIR}"
-  cd $WORKSPACE
+  cd ${BUILDENV}/shopware/custom/plugins/${PLUGIN_NAME}
   rsync -av \
     --exclude='build/' \
     --exclude='.travis/' \
