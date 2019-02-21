@@ -8,5 +8,5 @@ HOME=`dirname "${ABSPATH}"`
 
 mkdir -p ${HOME}/build/dependencies
 if [ ! -d ${HOME}/build/dependencies/FfuenfCommon ] ; then
-  git clone https://github.com/ffuenf/FfuenfCommon ${HOME}/build/dependencies
+  git clone https://github.com/ffuenf/FfuenfCommon ${HOME}/build/dependencies/FfuenfCommon
 fi
