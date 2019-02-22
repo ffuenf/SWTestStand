@@ -16,12 +16,14 @@ if [ $TRAVIS_TAG != '' ]; then
   cd ${TRAVIS_BUILD_DIR}
   rsync -av \
     --exclude='build/' \
+    --exclude='vendor/' \
     --exclude='.travis/' \
     --exclude='.travis.yml' \
     --exclude='.git/' \
     --exclude='.gitignore' \
     --exclude='.gitmodules' \
     --exclude='tests' \
+    --exclude='composer.lock' \
     . ${RELEASEDIR}/$PLUGIN_NAME/
   cd ${RELEASEDIR}/
   zip -r $PLUGIN_NAME-$TRAVIS_TAG.zip $PLUGIN_NAME
