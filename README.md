@@ -17,15 +17,18 @@ Travis CI configuration
 Example .travis.yml file (in the Shopware extension you want to test):
 
 ```yml
+dist: bionic
 language: php
 sudo: false
+services:
+  - mysql
+  - redis
 cache:
   apt: true
   directories:
   - "$HOME/.composer/cache"
   - "$HOME/.cache/bin"
 php:
-- 7.0
 - 7.1
 - 7.2
 - 7.3
